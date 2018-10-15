@@ -1,0 +1,16 @@
+
+
+wx:
+  pay:
+    #公众号appid
+    appId:
+    #商户id
+    mchId:
+    #支付api安全密钥
+    mchKey:
+    #支付类型
+    trade_type: NATIVE
+    #回调地址
+    notify_url: https://sign.fangxinqian.cn:8011/pay/notify_url
+server:
+  port: 8011
