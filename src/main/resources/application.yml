@@ -3,17 +3,17 @@
 wx:
   pay:
     #公众号appid
-    appId:
+    appId: wx9c2707e2093dee43
     #商户id
-    mchId:
+    mchId: 1495387912
     #支付api安全密钥
-    mchKey:
+    mchKey: BoMjHdrVXCXMCOJpYBMcS0M75dohiH8U
     #支付类型
     trade_type: NATIVE
     #支付结果回调地址
-    pay_notify:
+    pay_notify: http://sign.fangxinqian.cn:8011/pay/pay_notify
     #退款结果回调
-    refund_notify:
+    refund_notify: http://sign.fangxinqian.cn:8011/pay/refund_notify
     #证书地址
     keyPath: /keystore/wx_pay_cert.p12
 server:
