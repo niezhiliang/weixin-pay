@@ -1,6 +1,5 @@
 package com.niezhiliang.wei.pay.utils;
 
-import com.niezhiliang.wei.pay.serviceImpl.PayMethodsImpl;
 import org.apache.http.*;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -69,6 +68,13 @@ public class HttpUtil {
         return null;
     }
 
+    /**
+     * 带证书请求
+     * @param url
+     * @param data
+     * @return
+     * @throws Exception
+     */
     public static String doRefund(String url,String data) throws Exception {
         /**
          * PKCS12证书 是从微信商户平台-》账户设置-》 API安全 中下载的
