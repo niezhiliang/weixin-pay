@@ -6,7 +6,7 @@
 
 ##### Request URL:http://127.0.0.1:8011/pay/qrcode
 
-##### Request Method: POST
+##### Request Method: POST(content-Type=application/json)
 
 #### 参数：
 
@@ -19,6 +19,25 @@
 这里只是填了一些必要的参数，更多请求参数详情访问微信的开发文档
 
 https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1
+
+
+### 关闭订单接口
+
+##### 描述: 由于某些原因我们可以进行订单进行关闭，让其失效
+
+##### Request URL: http://127.0.0.1:8011/pay/close_order
+
+##### Request Method: POST(content-Type=application/json)
+
+#### 参数：
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| out_trade_no  |String|  必须  |   交易流水号
+
+这里只是填了一些必要的参数，更多请求参数详情访问微信的开发文档
+
+https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_3
 
 
 ### 退款接口
@@ -41,6 +60,27 @@ https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1
 这里只是填了一些必要的参数，更多请求参数详情访问微信的开发文档
 
 https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_4
+
+
+### 退款结果查询接口
+
+##### 描述: 由于某些原因我们可以进行退款
+
+##### Request URL: http://127.0.0.1:8011/pay/refund_query
+
+##### Request Method: POST(content-Type=application/json)
+
+#### 参数：
+
+| 名称   | 类型 | 是否必须| 参数描述
+| :----: | :---: | :---: | :---:
+| out_trade_no  |String|  必须  |   交易流水号
+
+这里只是填了一些必要的参数，更多请求参数详情访问微信的开发文档
+
+https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_5
+
+
 
 
 
