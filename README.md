@@ -4,7 +4,7 @@
 
 ##### 描述: 生成微信支付所需的二维码链接地址(通过这个地址用插件生产二维码图片扫描进行支付)
 
-##### Request URL: 127.0.0.1:8011/pay/qrcode
+##### Request URL:http://127.0.0.1:8011/pay/qrcode
 
 ##### Request Method: POST
 
@@ -25,7 +25,7 @@ https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1
 
 ##### 描述: 由于某些原因我们可以进行退款
 
-##### Request URL: 127.0.0.1:8011/pay/refund
+##### Request URL: http://127.0.0.1:8011/pay/refund
 
 ##### Request Method: POST
 
