@@ -7,18 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * @Email nzlsgg@163.com
  */
 @XStreamAlias("xml")
-public class QrcodeBo{
-    //公众账号ID
-    private String appid;
-
-    //商户号
-    private String mch_id;
-
-    //随机字符串
-    private String nonce_str;
-
-    //签名
-    private String sign;
+public class QrcodeBo extends BaseBo {
 
     //商品描述
     private String body;
@@ -32,11 +21,12 @@ public class QrcodeBo{
     //终端IP
     private String spbill_create_ip;
 
+    //交易类型
+    private String trade_type;
+
     //通知地址
     private String notify_url;
 
-    //交易类型
-    private String trade_type;
 
     public String getBody() {
         return body;
@@ -70,14 +60,6 @@ public class QrcodeBo{
         this.spbill_create_ip = spbill_create_ip;
     }
 
-    public String getNotify_url() {
-        return notify_url;
-    }
-
-    public void setNotify_url(String notify_url) {
-        this.notify_url = notify_url;
-    }
-
     public String getTrade_type() {
         return trade_type;
     }
@@ -86,35 +68,11 @@ public class QrcodeBo{
         this.trade_type = trade_type;
     }
 
-    public String getAppid() {
-        return appid;
+    public String getNotify_url() {
+        return notify_url;
     }
 
-    public void setAppid(String appid) {
-        this.appid = appid;
-    }
-
-    public String getMch_id() {
-        return mch_id;
-    }
-
-    public void setMch_id(String mch_id) {
-        this.mch_id = mch_id;
-    }
-
-    public String getNonce_str() {
-        return nonce_str;
-    }
-
-    public void setNonce_str(String nonce_str) {
-        this.nonce_str = nonce_str;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setNotify_url(String notify_url) {
+        this.notify_url = notify_url;
     }
 }

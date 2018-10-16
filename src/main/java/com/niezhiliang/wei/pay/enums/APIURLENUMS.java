@@ -1,4 +1,4 @@
-package com.niezhiliang.wei.pay;
+package com.niezhiliang.wei.pay.enums;
 
 /**
  * @Author NieZhiLiang

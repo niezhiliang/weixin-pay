@@ -7,19 +7,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * @Email nzlsgg@163.com
  */
 @XStreamAlias("xml")
-public class RefundBo {
-    //公众账号ID
-    private String appid;
-
-    //商户号
-    private String mch_id;
-
-    //随机字符串
-    private String nonce_str;
-
-    //签名
-    private String sign;
-
+public class RefundBo extends BaseBo{
     //商户订单号
     private String out_trade_no;
 
@@ -31,6 +19,9 @@ public class RefundBo {
 
     //退款总金额
     private String refund_fee;
+
+    //通知地址
+    private String notify_url;
 
     public String getOut_trade_no() {
         return out_trade_no;
@@ -64,35 +55,11 @@ public class RefundBo {
         this.refund_fee = refund_fee;
     }
 
-    public String getAppid() {
-        return appid;
+    public String getNotify_url() {
+        return notify_url;
     }
 
-    public void setAppid(String appid) {
-        this.appid = appid;
-    }
-
-    public String getMch_id() {
-        return mch_id;
-    }
-
-    public void setMch_id(String mch_id) {
-        this.mch_id = mch_id;
-    }
-
-    public String getNonce_str() {
-        return nonce_str;
-    }
-
-    public void setNonce_str(String nonce_str) {
-        this.nonce_str = nonce_str;
-    }
-
-    public String getSign() {
-        return sign;
-    }
-
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setNotify_url(String notify_url) {
+        this.notify_url = notify_url;
     }
 }

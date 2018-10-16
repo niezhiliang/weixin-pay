@@ -1,14 +1,20 @@
 package com.niezhiliang.wei.pay.utils;
 
+import com.niezhiliang.wei.pay.serviceImpl.PayMethodsImpl;
 import org.apache.http.*;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
-
+import org.springframework.util.ResourceUtils;
+import javax.net.ssl.SSLContext;
 import java.io.*;
+import java.security.KeyStore;
+
 
 /**
  * @Author NieZhiLiang
@@ -61,6 +67,46 @@ public class HttpUtil {
             }
         }
         return null;
+    }
+
+    public static String doRefund(String url,String data) throws Exception {
+        /**
+         * PKCS12证书 是从微信商户平台-》账户设置-》 API安全 中下载的
+         */
+        KeyStore keyStore  = KeyStore.getInstance("PKCS12");
+        File certfile = ResourceUtils.getFile(YmlUtil.get("wx.pay.keyPath"));
+        FileInputStream instream = new FileInputStream(certfile);
+        try {
+            keyStore.load(instream, YmlUtil.get("wx.pay.mchId").toCharArray());
+        } finally {
+            instream.close();
+        }
+        SSLContext sslcontext = SSLContexts.custom()
+                .loadKeyMaterial(keyStore, YmlUtil.get("wx.pay.mchId").toCharArray())
+                .build();
+        SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(
+                sslcontext,
+                new String[] { "TLSv1" },
+                null,
+                SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+        CloseableHttpClient httpclient = HttpClients.custom()
+                .setSSLSocketFactory(sslsf)
+                .build();
+        try {
+            HttpPost httpost = new HttpPost(url);
+            httpost.setEntity(new StringEntity(data, "UTF-8"));
+            CloseableHttpResponse response = httpclient.execute(httpost);
+            try {
+                HttpEntity entity = response.getEntity();
+                String jsonStr = EntityUtils.toString(response.getEntity(), "UTF-8");
+                EntityUtils.consume(entity);
+                return jsonStr;
+            } finally {
+                response.close();
+            }
+        } finally {
+            httpclient.close();
+        }
     }
 
 }
