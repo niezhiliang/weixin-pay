@@ -62,7 +62,7 @@ https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_4
 
 ### 退款结果查询接口
 
-##### 描述: 由于某些原因我们可以进行退款
+##### 描述: 对退款结果进行查询
 
 ##### Request URL: http://127.0.0.1:8011/pay/refund_query
 
